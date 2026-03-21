@@ -94,7 +94,7 @@ export default function AboutPage() {
         </p>
 
         <p>
-          I grew up in a loving household with my older brother, who is now
+          I grew up in a loving household with my older brother Jake, who is
           married to my wonderful sister-in-law, Katie, and they have three boys. Getting to be an uncle is one of the most
           fun and meaningful parts of my life. As a kid, I loved video games,
           technology, and being outside, whether that meant being on a baseball
