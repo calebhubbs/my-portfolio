@@ -4,40 +4,69 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="Description"
-      content="Caleb Hubbs personal portfolio. Based out of Houston, Texas"
-    />
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta name="theme-color" content="#171717" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Caleb Hubbs</title>
+    <!-- Primary SEO -->
+    <title>Caleb Hubbs - Senior Software Engineer & Tech Lead</title>
+    <meta
+      name="description"
+      content="Senior software engineer and tech lead at YouVersion. Building products used by millions. Runner, mentor, and outdoor enthusiast based in Oklahoma."
+    />
+    <meta name="author" content="Caleb Hubbs" />
+    <link rel="canonical" href="https://calebhubbs.com" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calebhubbs.com" />
+    <meta property="og:title" content="Caleb Hubbs - Senior Software Engineer & Tech Lead" />
+    <meta
+      property="og:description"
+      content="Senior software engineer and tech lead at YouVersion. Building products used by millions. Runner, mentor, and outdoor enthusiast based in Oklahoma."
+    />
+    <meta property="og:image" content="https://calebhubbs.com/images/me.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Caleb Hubbs" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Caleb Hubbs - Senior Software Engineer & Tech Lead" />
+    <meta
+      name="twitter:description"
+      content="Senior software engineer and tech lead at YouVersion. Building products used by millions. Runner, mentor, and outdoor enthusiast based in Oklahoma."
+    />
+    <meta name="twitter:image" content="https://calebhubbs.com/images/me.png" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Caleb Hubbs",
+        "url": "https://calebhubbs.com",
+        "jobTitle": "Senior Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "YouVersion"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/caleb-hubbs-7a163a158/",
+          "https://github.com/calebhubbs",
+          "https://strava.app.link/YKLYVXF7G1b"
+        ],
+        "description": "Senior software engineer and tech lead at YouVersion. Building products used by millions."
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

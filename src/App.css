@@ -1,20 +1,15 @@
 /*
- *   Copyright (c) 2024 
+ *   Copyright (c) 2024
  *   All rights reserved.
  */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 .blinking-cursor {
   font-weight: 300;
-  color: white;
-  font-size: 16px;
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;
-  -ms-animation: 1s blink step-end infinite;
-  -o-animation: 1s blink step-end infinite;
   animation: 1s blink step-end infinite;
 }
 
@@ -30,17 +25,6 @@
   from, to {
     color: transparent;
   }
-
-  50% {
-    color: white;
-  }
-}
-
-@-moz-keyframes blink {
-  from, to {
-    color: transparent;
-  }
-
   50% {
     color: white;
   }
@@ -50,27 +34,6 @@
   from, to {
     color: transparent;
   }
-
-  50% {
-    color: white;
-  }
-}
-
-@-ms-keyframes blink {
-  from, to {
-    color: transparent;
-  }
-
-  50% {
-    color: white;
-  }
-}
-
-@-o-keyframes blink {
-  from, to {
-    color: transparent;
-  }
-
   50% {
     color: white;
   }
