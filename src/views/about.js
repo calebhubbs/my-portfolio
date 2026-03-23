@@ -146,7 +146,6 @@ export default function AboutPage() {
           and still fully loved by Him.
         </p>
 
-        {/* PHOTO: San Diego - drop an image in src/images/about/san-diego.jpg */}
         <PhotoSingle
           src={sanDiego}
           alt="A semester in San Diego"
