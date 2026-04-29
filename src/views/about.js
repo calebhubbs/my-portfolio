@@ -94,18 +94,15 @@ export default function AboutPage() {
         </p>
 
         <p>
-          I grew up in a loving household with my older brother Jake, who is
+          I grew up in a loving household with my older brother Jake, who is now
           married to my wonderful sister-in-law, Katie, and they have three boys. Getting to be an uncle is one of the most
           fun and meaningful parts of my life. As a kid, I loved video games,
           technology, and being outside, whether that meant being on a baseball
-          field or a basketball court. I could never sit still long enough to
-          watch movies, so I've had to do a lot of catching up there over the
-          years.
+          field or a basketball court.
         </p>
 
-        <PhotoPair
-          left={{ src: childhood, alt: "Growing up", caption: "The Hubbs family" }}
-          right={{ src: null, alt: "Family photo", caption: "" }} 
+        <PhotoSingle
+         src={childhood} alt="Growing up" caption="The Hubbs family"
         />
 
         <p>

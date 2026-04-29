@@ -76,7 +76,7 @@ export default function HomePage() {
 
       <div className="space-y-5 text-neutral-300 leading-relaxed text-base md:text-lg">
         <p>
-          I'm a{" "}
+          What's up everyone! I'm a{" "}
           <span className="text-neutral-100">senior software engineer</span> and{" "}
           <span className="text-neutral-100">tech lead</span> at{" "}
           <a
@@ -87,10 +87,7 @@ export default function HomePage() {
           >
             YouVersion
           </a>
-          , where I've been for over four years. I help lead the Generosity and Growth
-          teams and get to build products that millions of people use every day.
-          One of my favorite parts of the job is mentoring interns and junior
-          developers getting them to know and reach their potential.
+          , where I've been for over four years.
         </p>
 
         <p>
