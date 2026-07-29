@@ -17,7 +17,6 @@ import youversion from '../images/about/Image003.jpg';
 import running1 from '../images/about/running1.jpg';
 // import family2 from '../images/about/family2.jpg';
 import manInArena from '../images/about/man-n-arena.webp';
-import outdoors from '../images/about/outdoors.jpg';
 
 function PhotoSingle({ src, alt, caption }) {
   if (!src) {
@@ -94,8 +93,9 @@ export default function AboutPage() {
         </p>
 
         <p>
-          I grew up in a loving household with my older brother Jake, who is now
-          married to my wonderful sister-in-law, Katie, and they have three boys. Getting to be an uncle is one of the most
+          It started with how I grew up: in a loving household with my older
+          brother Jake, who is now married to my wonderful sister-in-law, Katie,
+          and they have three boys. Getting to be an uncle is one of the most
           fun and meaningful parts of my life. As a kid, I loved video games,
           technology, and being outside, whether that meant being on a baseball
           field or a basketball court.
@@ -150,8 +150,8 @@ export default function AboutPage() {
         />
 
         <p>
-          I ended up graduating from Southern Nazarene with a bachelor's degree
-          in business, and into COVID. Around that time, I kept coming back to
+          With that clarity, I ended up graduating from Southern Nazarene with a
+          bachelor's degree in business, and into COVID. Around that time, I kept coming back to
           something that had interested me for years: technology. I had always
           been curious about how applications were built, so I decided to attend
           a coding bootcamp. That decision ended up changing the direction of my
@@ -198,10 +198,10 @@ export default function AboutPage() {
         </p>
 
         <p>
-          Running has become a big part of that season for me. Right now I'm
-          training for a marathon, and I want to keep pushing further into
-          endurance with goals like running a 50-miler and eventually a
-          100-miler. More than anything, running keeps reminding me of something
+          Running has become a big part of that season for me. I've run the OKC
+          Marathon, a backyard ultra, and a half marathon, and I want to keep
+          pushing further into endurance with goals like running a 50-miler and
+          eventually a 100-miler. More than anything, running keeps reminding me of something
           I've seen throughout my whole life: showing up matters. Staying
           consistent matters. Keep going, even when it's slow. Keep going, even
           when life feels heavy.
@@ -217,12 +217,6 @@ export default function AboutPage() {
           turn. Not always on your timeline, and not always in the way you
           expected, but God is faithful. He is always at work.
         </p>
-
-        <PhotoSingle
-          src={outdoors}
-          alt="Somewhere outside"
-          caption=""
-        />
       </div>
     </div>
   );

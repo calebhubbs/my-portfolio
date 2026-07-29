@@ -2,82 +2,87 @@
  *   Copyright (c) 2024
  *   All rights reserved.
  */
-import { useState, useEffect } from 'react';
+import { useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 import '../App.css';
 
+const TITLES = [
+  "Staff Engineer",
+  "Reader",
+  "Runner",
+  "Coffee Enthusiast",
+  "Mentor",
+];
+
+// 10% faster than the original 150ms/char, 1000ms hold
+const CHAR_MS = 135;
+const HOLD_MS = 900;
+const CYCLE_MS = TITLES.reduce((sum, title) => sum + title.length * CHAR_MS + HOLD_MS, 0);
 
 export default function HomePage() {
-  const titles = [
-    "Senior Software Engineer",
-    "Tech Lead",
-    "Runner",
-    "Astronomy Enthusiast",
-    "Mentor",
-  ];
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [blink, setBlink] = useState(true);
+  const stopRef = useRef(null);
 
-  useEffect(() => {
-    const typeTimeout = setTimeout(() => {
-      setCharIndex((prevCharIndex) => {
-        if (prevCharIndex < titles[currentIndex].length) {
-          return prevCharIndex + 1;
+  // Callback ref: fires with the node on mount, with null on unmount.
+  // Lets us start/stop a rAF loop without useEffect (works in React 18+).
+  const typewriterRef = useCallback((node) => {
+    if (!node) {
+      stopRef.current?.();
+      stopRef.current = null;
+      return;
+    }
+
+    let frameId;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+      let elapsed = (now - startTime) % CYCLE_MS;
+
+      for (const title of TITLES) {
+        const segmentMs = title.length * CHAR_MS + HOLD_MS;
+        if (elapsed < segmentMs) {
+          const chars = Math.min(Math.floor(elapsed / CHAR_MS), title.length);
+          const next = title.substring(0, chars);
+          if (node.textContent !== next) node.textContent = next;
+          break;
         }
-        return prevCharIndex;
-      });
-    }, 150);
-
-    const changeTitleTimeout = setTimeout(() => {
-      if (charIndex === titles[currentIndex].length) {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % titles.length);
-        setCharIndex(0);
+        elapsed -= segmentMs;
       }
-    }, 1000);
 
-    const blinkTimeout = setInterval(() => {
-      setBlink((prevBlink) => !prevBlink);
-    }, 500);
-
-    return () => {
-      clearTimeout(typeTimeout);
-      clearTimeout(changeTitleTimeout);
-      clearInterval(blinkTimeout);
+      frameId = requestAnimationFrame(tick);
     };
-  }, [charIndex, currentIndex]);
+
+    frameId = requestAnimationFrame(tick);
+    stopRef.current = () => cancelAnimationFrame(frameId);
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto py-16 md:py-24 px-4">
       <Helmet>
-        <title>Caleb Hubbs - Senior Software Engineer & Tech Lead</title>
-        <meta name="description" content="Senior software engineer and tech lead at YouVersion. Building products used by millions. Runner, mentor, and outdoor enthusiast based in Oklahoma." />
+        <title>Caleb Hubbs - Staff Engineer & Tech Lead</title>
+        <meta name="description" content="Staff engineer and tech lead at YouVersion. Building products used by millions. Runner, mentor, and outdoor enthusiast based in Oklahoma." />
       </Helmet>
       <h1 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-2">
-        <Link to="/about" className="hover:text-neutral-300 transition-colors">
+        <Link
+          to="/about"
+          className="underline decoration-neutral-500 underline-offset-4 hover:decoration-neutral-300 transition-colors"
+        >
           Caleb Hubbs
         </Link>
       </h1>
 
       <p className="md:text-xl text-lg mb-8">
-        <span className="multicolortext">
-          {titles[currentIndex].substring(0, charIndex)}
-        </span>
-        <span
-          className={`blinking-cursor multicolortext font-extrabold ${
-            blink ? "visible" : "invisible"
-          }`}
-        >
+        <span ref={typewriterRef} className="multicolortext" />
+        <span className="blinking-cursor multicolortext font-extrabold">
           _
         </span>
       </p>
 
       <div className="space-y-5 text-neutral-300 leading-relaxed text-base md:text-lg">
         <p>
-          What's up everyone! I'm a{" "}
-          <span className="text-neutral-100">senior software engineer</span> and{" "}
+          What's up! I'm a{" "}
+          <span className="text-neutral-100">staff engineer</span> and{" "}
           <span className="text-neutral-100">tech lead</span> at{" "}
           <a
             href="https://www.youversion.com"
@@ -93,24 +98,14 @@ export default function HomePage() {
         <p>
           I played{" "}
           <span className="text-neutral-100">college basketball</span> for two
-          years, and I've never really lost that competitive side. Right now I'm
-          training for the{" "}
-          <span className="text-neutral-100">OKC Marathon</span> and working
-          toward qualifying for Boston someday. I've done an ultra and a half
-          marathon so far. You can follow along on{" "}
-          <a
-            href="https://strava.app.link/YKLYVXF7G1b"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline decoration-neutral-500 underline-offset-2 hover:decoration-neutral-300 transition-colors"
-          >
-            Strava
-          </a>
-          .
+          years, and I've never really lost that competitive side. I've since
+          run the{" "}
+          <span className="text-neutral-100">OKC Marathon</span>, a backyard
+          ultra, and a half marathon, and I'm still chasing a Boston qualifier.
         </p>
 
         <p>
-          When I'm not running, I'm probably reading books, taking a long walk, catching a sunset, or watching sports on TV. I'm happiest when I'm helping people, whether
+          When I'm not running, I'm probably reading books, taking a long walk, catching a sunset, or watching sports. I'm happiest when I'm helping people, whether
           that's through code, mentorship, or just being there.
         </p>
 
@@ -141,37 +136,36 @@ export default function HomePage() {
           </li>
           <li>
             <a
-              href="https://give.bible.com"
+              href="https://cclegalaid.org/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-300 underline decoration-neutral-500 underline-offset-2 hover:decoration-neutral-300 transition-colors"
             >
-              YouVersion Giving
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://play.google.com/store/apps/details?id=app.bible.lite.offline&hl=en_US"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-300 underline decoration-neutral-500 underline-offset-2 hover:decoration-neutral-300 transition-colors"
-            >
-              Bible App Lite
+              Community Legal
             </a>
           </li>
         </ul>
 
         <p>
-          You can find my{" "}
+          Coming soon:
+        </p>
+
+        <ul className="list-disc list-inside space-y-1 pl-1 text-neutral-400">
+          <li>Pegasus</li>
+          <li>Cruse</li>
+        </ul>
+
+        <p>
+          To see my code:{" "}
           <a
             href="https://github.com/calebhubbs"
             target="_blank"
             rel="noopener noreferrer"
             className="underline decoration-neutral-500 underline-offset-2 hover:decoration-neutral-300 transition-colors"
           >
-            code
+            GitHub
           </a>
-          , connect on{" "}
+          , to connect:{" "}
           <a
             href="https://www.linkedin.com/in/caleb-hubbs-7a163a158/"
             target="_blank"
@@ -180,14 +174,14 @@ export default function HomePage() {
           >
             LinkedIn
           </a>
-          , or{" "}
+          , to get in touch:{" "}
           <a
             href="mailto:calebhubbs33@gmail.com"
             className="underline decoration-neutral-500 underline-offset-2 hover:decoration-neutral-300 transition-colors"
           >
-            reach out
-          </a>{" "}
-          if you want to chat.
+            Email
+          </a>
+          .
         </p>
       </div>
     </div>
