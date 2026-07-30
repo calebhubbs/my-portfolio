@@ -6,6 +6,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import HomePage from "./views/index";
 import AboutPage from "./views/about";
 
@@ -23,6 +24,7 @@ export default function App() {
         </div>
       </Router>
       <Analytics />
+      <SpeedInsights />
     </HelmetProvider>
   )
 }
