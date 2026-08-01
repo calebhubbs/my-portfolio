@@ -1,11 +1,11 @@
 # Caleb Hubbs
 
-> Staff software engineer and tech lead at YouVersion, building products used by millions of people every day. Based in Oklahoma. Runner, mentor, and outdoor enthusiast.
+> Full stack staff software engineer and tech lead at YouVersion, building products used by millions of people every day. Drawn to technology for good: apps and websites that help the people using them. Based in Oklahoma. Runner, mentor, and outdoor enthusiast.
 
 ## Pages
 
 - [Homepage](https://calebhubbs.com/): Who Caleb is, what he's currently building, and links to get in touch.
-- [My Life So Far](https://calebhubbs.com/about): The longer personal story — college basketball, a semester in San Diego, a coding bootcamp, and becoming a tech lead at YouVersion.
+- [My Life So Far](https://calebhubbs.com/about): The longer personal story, from college basketball to a semester in San Diego to a coding bootcamp and becoming a tech lead at YouVersion.
 
 ## Work
 
